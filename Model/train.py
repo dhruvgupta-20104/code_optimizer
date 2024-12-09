@@ -68,7 +68,7 @@ trainer = SFTTrainer(
         per_device_train_batch_size = 2,
         gradient_accumulation_steps = 4,
         warmup_steps = 5,
-        max_steps = 60,
+        max_steps = 3,
         learning_rate = 2e-4,
         fp16 = not is_bfloat16_supported(),
         bf16 = is_bfloat16_supported(),
@@ -85,12 +85,12 @@ trainer_stats = trainer.train()
 
 model.save_pretrained("pre-trained_model")
 
-login(token="HF_TOKEN")
+# login(token="HF_TOKEN")
 
-repo_name = "dhruvgupta/better_ai_finetuned_llama"
+# repo_name = "dhruvgupta/better_ai_finetuned_llama"
 
-model.push_to_hub(repo_name)
-tokenizer.push_to_hub(repo_name)
+# model.push_to_hub(repo_name)
+# tokenizer.push_to_hub(repo_name)
 
 
 
